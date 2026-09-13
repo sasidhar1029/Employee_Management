@@ -1,12 +1,219 @@
-.btn.btn-primary {
-    border-radius: 5px;
-    background-color: #2375cd;
-    cursor: pointer;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body{
-     text-align: center;
-     background-color: #cd3333;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fb;
+  color: #222;
+}
+
+/* Main application */
+.app {
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 22px 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+  font-size: 28px;
+}
+
+/* Navigation */
+.navbar {
+  background-color: white;
+  padding: 15px 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #1e3a8a;
+  font-weight: 600;
+  margin-right: 25px;
+}
+
+.navbar a:hover {
+  color: #2563eb;
+}
+
+/* Main content */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+/* Card */
+.card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Page heading */
+.page-title {
+  margin-bottom: 25px;
+  color: #1e3a8a;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 7px;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-success {
+  background-color: #16a34a;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #15803d;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+.btn-secondary {
+  background-color: #64748b;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #475569;
+}
+
+/* Table */
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.employee-table th {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+.employee-table td {
+  padding: 13px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.employee-table tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Empty message */
+.empty-message {
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+}
+
+/* Home page */
+.home-card {
+  text-align: center;
+  padding: 60px 30px;
+}
+
+.home-card h2 {
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.home-card p {
+  color: #64748b;
+  font-size: 17px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navbar a {
+    margin-right: 10px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .employee-table {
+    font-size: 13px;
+  }
+
+  .employee-table th,
+  .employee-table td {
+    padding: 8px;
+  }
+
 }

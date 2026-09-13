@@ -1,55 +1,77 @@
-import axios from 'axios'
-import './App.css'
-import {useState} from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import "./App.css";
+import AddEmployee from "./pages/AddEmployee";
+import EmployeeList from "./pages/EmployeeList";
+import EditEmployee from "./pages/EditEmployee";
+
+import "./App.css";
+
 function App() {
 
-  const [empName, setEmpName] = useState("");
-  const [empSalary, setEmpSalary] = useState();
-
-  const api = "http://localhost:8080/insertEmp";
-
-  const addEmployee = async () => {
-
-    try {
-
-      await axios.post(api, {
-        EmpName: empName,
-        EmpSalary: empSalary
-      });
-
-      alert("Employee added successfully!");
-
-    } catch (error) {
-
-      console.log(error);
-      alert("Failed to add employee");
-
-    }
-    setEmpName("");
-    setEmpSalary();
-  };
-
   return (
-    <>
-      <h1>Employee Management</h1>
-      <input
-        type="text"
-        placeholder="Employee Name"
-        value={empName}
-        onChange={(e) => setEmpName(e.target.value)}
-      />
-      <br />  <br/>
-      <input
-        type="number"
-        placeholder="Employee Salary"
-        value={empSalary}
-        onChange={(e) => setEmpSalary(e.target.value)}
-      />      <br/>
-      <br/>
-      <button onClick={addEmployee} className="btn btn-primary">
-        Add Employee
-      </button>
-    </>
+
+    <BrowserRouter>
+
+      <div className="app">
+
+        <header className="header">
+          <h1>Employee Management System</h1>
+        </header>
+
+        <nav className="navbar">
+
+          <Link to="/">Home</Link>
+
+          <Link to="/add">Add Employee</Link>
+
+          <Link to="/employees">Employee List</Link>
+
+        </nav>
+
+        <main className="container">
+
+          <Routes>
+
+            <Route
+              path="/"
+              element={
+                <div className="card home-card">
+                  <h2>Welcome to Employee Management System</h2>
+
+                  <p>
+                    Manage your employees easily using our CRUD application.
+                  </p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/add"
+              element={<AddEmployee />}
+            />
+
+            <Route
+              path="/employees"
+              element={<EmployeeList />}
+            />
+
+            <Route
+              path="/edit/:id"
+              element={<EditEmployee />}
+            />
+
+          </Routes>
+
+        </main>
+
+      </div>
+
+    </BrowserRouter>
   );
 }
 
