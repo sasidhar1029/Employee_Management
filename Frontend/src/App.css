@@ -1,0 +1,12 @@
+.btn.btn-primary {
+    border-radius: 5px;
+    background-color: #2375cd;
+    cursor: pointer;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+body{
+     text-align: center;
+     background-color: #cd3333;
+}
