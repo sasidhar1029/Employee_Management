@@ -4,17 +4,16 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 import "./App.css";
+
 import AddEmployee from "./pages/AddEmployee";
 import EmployeeList from "./pages/EmployeeList";
 import EditEmployee from "./pages/EditEmployee";
 
-import "./App.css";
-
 function App() {
 
   return (
-
     <BrowserRouter>
 
       <div className="app">
@@ -23,15 +22,23 @@ function App() {
           <h1>Employee Management System</h1>
         </header>
 
+
         <nav className="navbar">
 
-          <Link to="/">Home</Link>
+          <Link to="/">
+            Home
+          </Link>
 
-          <Link to="/add">Add Employee</Link>
+          <Link to="/add">
+            Add Employee
+          </Link>
 
-          <Link to="/employees">Employee List</Link>
+          <Link to="/employees">
+            Employee List
+          </Link>
 
         </nav>
+
 
         <main className="container">
 
@@ -41,24 +48,31 @@ function App() {
               path="/"
               element={
                 <div className="card home-card">
-                  <h2>Welcome to Employee Management System</h2>
+
+                  <h2>
+                    Welcome to Employee Management System
+                  </h2>
 
                   <p>
                     Manage your employees easily using our CRUD application.
                   </p>
+
                 </div>
               }
             />
+
 
             <Route
               path="/add"
               element={<AddEmployee />}
             />
 
+
             <Route
               path="/employees"
               element={<EmployeeList />}
             />
+
 
             <Route
               path="/edit/:id"

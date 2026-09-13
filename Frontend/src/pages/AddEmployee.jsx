@@ -10,8 +10,29 @@ function AddEmployee() {
 
   const addEmployee = async () => {
 
-    if (!empName || !empSalary) {
-      alert("Please enter employee name and salary");
+    // Name validation
+    if (!empName.trim()) {
+      alert("Employee name is required");
+      return;
+    }
+
+    // Name format validation
+    const namePattern = /^[A-Za-z ]+$/;
+
+    if (!namePattern.test(empName)) {
+      alert("Employee name should contain only letters");
+      return;
+    }
+
+    // Salary validation
+    if (!empSalary) {
+      alert("Employee salary is required");
+      return;
+    }
+
+    // Salary should be greater than 0
+    if (Number(empSalary) <= 0) {
+      alert("Salary must be greater than 0");
       return;
     }
 
@@ -36,10 +57,11 @@ function AddEmployee() {
   };
 
   return (
-
     <div className="card">
 
-      <h2 className="page-title">Add Employee</h2>
+      <h2 className="page-title">
+        Add Employee
+      </h2>
 
       <div className="form-group">
 
@@ -77,7 +99,6 @@ function AddEmployee() {
       </button>
 
     </div>
-
   );
 }
 
