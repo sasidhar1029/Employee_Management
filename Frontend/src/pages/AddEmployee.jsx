@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-
+import Success from "./Success";
+import {useNavigate} from "react-router-dom"
 function AddEmployee() {
-
+ const navigate = useNavigate();
   const [empName, setEmpName] = useState("");
   const [empSalary, setEmpSalary] = useState("");
 
@@ -43,11 +44,11 @@ function AddEmployee() {
         EmpSalary: empSalary
       });
 
-      alert("Employee added successfully!");
+    
 
       setEmpName("");
       setEmpSalary("");
-
+      navigate("/success");
     } catch (error) {
 
       console.log(error);

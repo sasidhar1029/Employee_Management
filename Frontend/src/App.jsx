@@ -10,7 +10,8 @@ import "./App.css";
 import AddEmployee from "./pages/AddEmployee";
 import EmployeeList from "./pages/EmployeeList";
 import EditEmployee from "./pages/EditEmployee";
-
+import Success from "./pages/Success";
+import EmployeeDetails from "./pages/EmployeeDetails";
 function App() {
 
   return (
@@ -67,17 +68,21 @@ function App() {
               element={<AddEmployee />}
             />
 
-
+              <Route
+               path="/employees/:id"
+                 element={<EmployeeDetails />}
+                />
             <Route
               path="/employees"
               element={<EmployeeList />}
             />
 
 
-            <Route
-              path="/edit/:id"
-              element={<EditEmployee />}
-            />
+           <Route
+  path="/edit/:id"
+  element={<EditEmployee />}
+/>
+              <Route path='/success' element={<Success/>}/>
 
           </Routes>
 

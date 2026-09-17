@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function EmployeeList() {
-
+  const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -123,7 +124,12 @@ function EmployeeList() {
                 <td>₹{employee.EmpSalary}</td>
 
                 <td>
-
+                <button
+    className="btn btn-primary"
+    onClick={() => navigate(`/employees/${employee.EmpId}`)}
+  >
+    View
+  </button>
                   <Link to={`/edit/${employee.EmpId}`}>
 
                     <button className="btn btn-primary">

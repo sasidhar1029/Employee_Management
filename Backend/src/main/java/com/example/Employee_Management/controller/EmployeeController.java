@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import jakarta.validation.Valid;
 import com.example.Employee_Management.Entity.Employee;
 import com.example.Employee_Management.Repository.EmployeeRepository;
 
@@ -25,7 +25,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/insertEmp")
-    public Employee insertEmployee(@RequestBody Employee emp) {
+    public Employee insertEmployee(@Valid @RequestBody Employee emp) {
         return employeeRepository.save(emp);
     }
 
@@ -42,7 +42,7 @@ public class EmployeeController {
     @PutMapping("/updateEmployee/{id}")
     public Employee updateEmployee(
             @PathVariable Long id,
-            @RequestBody Employee emp) {
+           @Valid  @RequestBody Employee emp) {
 
         Employee existing = employeeRepository.findById(id).orElse(null);
 
