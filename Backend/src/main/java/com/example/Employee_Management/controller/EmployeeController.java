@@ -10,54 +10,52 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import jakarta.validation.Valid;
+
 import com.example.Employee_Management.Entity.Employee;
-import com.example.Employee_Management.Repository.EmployeeRepository;
+import com.example.Employee_Management.Service.EmployeeService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class EmployeeController {
 
-    final EmployeeRepository employeeRepository;
+    private final EmployeeService employeeService;
 
-    EmployeeController(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
+    // Insert Employee
     @PostMapping("/insertEmp")
     public Employee insertEmployee(@Valid @RequestBody Employee emp) {
-        return employeeRepository.save(emp);
+        return employeeService.insertEmployee(emp);
     }
 
+    // Get All Employees
     @GetMapping("/getAllEmployees")
     public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+        return employeeService.getAllEmployees();
     }
 
+    // Get Employee By ID
     @GetMapping("/getEmployeeById/{id}")
     public Employee getEmployeeById(@PathVariable Long id) {
-        return employeeRepository.findById(id).orElse(null);
+        return employeeService.getEmployeeById(id);
     }
 
+    // Update Employee
     @PutMapping("/updateEmployee/{id}")
     public Employee updateEmployee(
             @PathVariable Long id,
-           @Valid  @RequestBody Employee emp) {
+            @Valid @RequestBody Employee emp) {
 
-        Employee existing = employeeRepository.findById(id).orElse(null);
-
-        if (existing == null) {
-            return null;
-        }
-
-        existing.setEmpName(emp.getEmpName());
-        existing.setEmpSalary(emp.getEmpSalary());
-
-        return employeeRepository.save(existing);
+        return employeeService.updateEmployee(id, emp);
     }
 
+    // Delete Employee
     @DeleteMapping("/deleteEmployee/{id}")
     public void deleteEmployee(@PathVariable Long id) {
-        employeeRepository.deleteById(id);
+        employeeService.deleteEmployee(id);
     }
 }

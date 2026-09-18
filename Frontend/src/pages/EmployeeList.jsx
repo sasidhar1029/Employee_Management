@@ -22,10 +22,15 @@ function EmployeeList() {
 
     } catch (error) {
 
-      console.log(error);
-      alert("Failed to get employees");
+  console.log(error);
 
-    }
+  const message =
+    error.response?.data?.message ||
+    "Failed to get employees with 404";
+
+  alert(message);
+
+}
   };
 
 
@@ -52,10 +57,15 @@ function EmployeeList() {
 
     } catch (error) {
 
-      console.log(error);
-      alert("Failed to delete employee");
+  console.log(error);
 
-    }
+  const message =
+    error.response?.data?.message ||
+    "Failed to get employees with 404";
+
+  alert(message);
+
+}
   };
 
 

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import "./App.css";
-
+import EmployeeNotFound from "./pages/EmployeeNotFound";
 import AddEmployee from "./pages/AddEmployee";
 import EmployeeList from "./pages/EmployeeList";
 import EditEmployee from "./pages/EditEmployee";
@@ -76,7 +76,10 @@ function App() {
               path="/employees"
               element={<EmployeeList />}
             />
-
+            <Route
+  path="/employee-not-found"
+  element={<EmployeeNotFound />}
+/>
 
            <Route
   path="/edit/:id"
